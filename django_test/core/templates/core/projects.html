@@ -4,4 +4,9 @@
 
 {% block content %}
     <h1>The projects page</h1>
+    {% for project in projects %}
+    <p>{{ project.name }}</p>
+    <a href="{{ project.link }}">{{ project.link }}</a>
+    <p>{{ project.description }}</p>
+    {% endfor %}
 {% endblock %}
