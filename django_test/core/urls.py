@@ -7,6 +7,6 @@ app_name = 'core'
 
 urlpatterns = [
     path("", views.index, name='index'),
-    path("contact/", MessageView.as_view(), name='contact'),
+    path("contact/", views.contact, name='contact'),
     path("projects/", views.projects, name='projects'),
 ]
