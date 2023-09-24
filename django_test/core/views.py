@@ -14,7 +14,7 @@ def index(request):
 def contact(request):
     if request.method == 'POST':
         form = MessageForm(request.POST)
-        print(f"apples {form.cleaned_data['email']}\nbananas {form.cleaned_data['message']}")
+        print(f"apples {form['email']}\nbananas {form['message']}")
         
         if form.is_valid():
             send_mail(
@@ -39,26 +39,26 @@ def projects(request):
         'projects': projects,
     })
 
-class MessageView(FormView):
-    template_name = 'core/contact.html'
-    form_class = MessageForm
-    success_url = ''
+# class MessageView(FormView):
+#     template_name = 'core/contact.html'
+#     form_class = MessageForm
+#     success_url = ''
 
-    def form_valid(self, form):
-        email = form.cleaned_data['email']
-        message = form.cleaned_data['message']
+#     def form_valid(self, form):
+#         email = form.cleaned_data['email']
+#         message = form.cleaned_data['message']
 
-        email_subject = 'Contact Message'
-        email_body = f"Email: {email}\nMessage: {message}"
-        email_sender = 'ryanpereda83@gmail.com'
-        email_recepient = 'ryanpereda83@gmail.com'
+#         email_subject = 'Contact Message'
+#         email_body = f"Email: {email}\nMessage: {message}"
+#         email_sender = 'ryanpereda83@gmail.com'
+#         email_recepient = 'ryanpereda83@gmail.com'
 
-        email_message = EmailMessage(
-            email_subject,
-            email_body,
-            email_sender,
-            [email_recepient],
-        )
-        email_message.send()
+#         email_message = EmailMessage(
+#             email_subject,
+#             email_body,
+#             email_sender,
+#             [email_recepient],
+#         )
+#         email_message.send()
 
-        return super().form_valid(form)
+#         return super().form_valid(form)

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from .views import MessageView
+# from .views import MessageView
 
 app_name = 'core'
 
