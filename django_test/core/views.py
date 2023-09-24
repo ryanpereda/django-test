@@ -11,15 +11,14 @@ from .forms import MessageForm
 def index(request):
     return render(request, 'core/index.html')
 
-def contact(request):
+def contact(request):  # remember to fix password being shown
     if request.method == 'POST':
         form = MessageForm(request.POST)
-        print(f"apples {form['email']}\nbananas {form['message']}")
         
         if form.is_valid():
             send_mail(
                 "Contact me email",
-                f"{form['email']}\n{form['message']}",
+                f"{form.cleaned_data['email']}\n{form.cleaned_data['message']}",
                 settings.EMAIL_HOST_USER,
                 ["ryanpereda83@gmail.com"],
                 fail_silently=False,
