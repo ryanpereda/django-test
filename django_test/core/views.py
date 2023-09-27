@@ -14,11 +14,11 @@ def index(request):
 def contact(request):  # remember to fix password being shown
     if request.method == 'POST':
         form = MessageForm(request.POST)
-        
+
         if form.is_valid():
             send_mail(
                 "Contact me email",
-                f"{form.cleaned_data['email']}\n{form.cleaned_data['message']}",
+                f"{form.cleaned_data['email']}\n\n{form.cleaned_data['message']}",
                 settings.EMAIL_HOST_USER,
                 ["ryanpereda83@gmail.com"],
                 fail_silently=False,
