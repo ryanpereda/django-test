@@ -29,26 +29,26 @@ def index(request):
         'form': form
     })
 
-def contact(request):
-    if request.method == 'POST':
-        form = MessageForm(request.POST)
+# def contact(request):
+#     if request.method == 'POST':
+#         form = MessageForm(request.POST)
 
-        if form.is_valid():
-            send_mail(
-                "Contact me email",
-                f"{form.cleaned_data['email']}\n\n{form.cleaned_data['message']}",
-                settings.EMAIL_HOST_USER,
-                ["ryanpereda83@gmail.com"],
-                fail_silently=False,
-            )
+#         if form.is_valid():
+#             send_mail(
+#                 "Contact me email",
+#                 f"{form.cleaned_data['email']}\n\n{form.cleaned_data['message']}",
+#                 settings.EMAIL_HOST_USER,
+#                 ["ryanpereda83@gmail.com"],
+#                 fail_silently=False,
+#             )
 
-            return redirect('core:contact')
+#             return redirect('core:contact')
         
-    else:
-        form = MessageForm()
-    return render(request, 'core/contact.html', {
-        'form': form
-    })
+#     else:
+#         form = MessageForm()
+#     return render(request, 'core/contact.html', {
+#         'form': form
+#     })
 
 def projects(request):
     projects = Project.objects.all()

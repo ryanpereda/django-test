@@ -3,15 +3,28 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-    <div class="flex">
+    <div class="flex bg-gray-100">
         <div class="w-3/4 border-r mr-6">
             <h1>The front page</h1>
+            <p>
+                filler filler filler filler filler filler filler filler filler filler filler 
+                filler filler filler filler filler filler filler filler filler filler filler filler filler 
+                filler filler filler filler filler filler filler filler filler filler filler filler
+                <br><br><br><br><br><br><br><br><br>
+                a
+                <br><br><br><br><br><br><br><br><br>
+                b
+                <br><br><br><br><br><br><br><br><br>
+                c
+                <br><br><br><br><br><br><br><br><br>
+                d
+            </p>
         </div>
         <div class="w-1/4">
             <form method='post'>
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type='submit'>Submit</button>
+                <button type='submit' class="bg-blue-300 rounded-xl px-2 py-1 hover:bg-blue-400">Submit</button>
             </form>
         </div>
     </div>
