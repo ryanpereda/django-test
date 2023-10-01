@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.edit import FormView
 from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
+from django.http import FileResponse
 
 from item.models import Project
 from .forms import MessageForm
+from .models import PDF
 
 # Create your views here.
 
