@@ -36,6 +36,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+CSP_DEFAULT_SRC = ("'self'",)
+CSP_SCRIPT_SRC = ("'self'",)
+CSP_IMG_SRC = ("'self'",)
+CSP_STYLE_SRC = ("'self'",)
+
+CSP_FRAME_ANCESTORS = ("'self'",)
+
 ALLOWED_HOSTS = []
 
 
@@ -50,6 +57,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core",
     "item",
+    'csp',
 ]
 
 MIDDLEWARE = [

@@ -11,6 +11,7 @@ from .models import PDF
 # Create your views here.
 
 def index(request):
+    pdf = PDF.objects.first()
     if request.method == 'POST':
         form = MessageForm(request.POST)
 
@@ -28,7 +29,8 @@ def index(request):
     else:
         form = MessageForm()
     return render(request, 'core/index.html', {
-        'form': form
+        'form': form,
+        'pdf': pdf
     })
 
 def pdf_view(request, pdf_id):
