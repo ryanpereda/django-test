@@ -31,6 +31,18 @@ def index(request):
         'form': form
     })
 
+def pdf_view(request, pdf_id):
+    pdf = get_object_or_404(PDF, pk=pdf_id)
+    pdf_path = pdf.file.path
+    response = FileResponse(open(pdf_path, 'rb'))
+    return response
+
+def projects(request):
+    projects = Project.objects.all()
+    return render(request, 'core/projects.html', {
+        'projects': projects,
+    })
+
 # def contact(request):
 #     if request.method == 'POST':
 #         form = MessageForm(request.POST)
@@ -51,9 +63,3 @@ def index(request):
 #     return render(request, 'core/contact.html', {
 #         'form': form
 #     })
-
-def projects(request):
-    projects = Project.objects.all()
-    return render(request, 'core/projects.html', {
-        'projects': projects,
-    })
