@@ -3,10 +3,16 @@
 {% block title %}Projects{% endblock %}
 
 {% block content %}
-    <h1>The projects page</h1>
-    {% for project in projects %}
-    <p>{{ project.name }}</p>
-    <a href="{{ project.link }}">{{ project.link }}</a>
-    <p>{{ project.description }}</p>
-    {% endfor %}
+    <div class="px-4 py-2">
+        <h1>The projects page</h1>
+        <div class="grid grid-cols-4 gap-5">
+            {% for project in projects %}
+            <a href="{{ project.link }}" class="bg-white rounded-xl px-2 py-2">
+                <p>{{ project.name }}</p>
+                <p>{{ project.link }}</p>
+                <p>{{ project.description }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

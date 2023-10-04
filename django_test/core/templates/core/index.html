@@ -4,24 +4,15 @@
 
 {% block content %}
     <div class="flex bg-gray-100">
-        <div class="w-3/4 border-r mr-6">
-            <h1>The front page</h1>
+        <div class="w-3/4 border-r mr-6 px-4 py-2">
+            <h1 class="text-lg">The front page</h1>
+            {% comment %} <br> {% endcomment %}
             <p>
-                filler filler filler filler filler filler filler filler filler filler filler 
-                filler filler filler filler filler filler filler filler filler filler filler filler filler 
-                filler filler filler filler filler filler filler filler filler filler filler filler
-                <br><br><br><br><br><br><br><br><br>
-                a <a href="{% url 'core:pdf_view' pdf.id %}">View PDF</a>
-                <iframe src="{% url 'core:pdf_view' pdf.id %}" width="100%" height="500"></iframe>
-                <br><br><br><br><br><br><br><br><br>
-                b
-                <br><br><br><br><br><br><br><br><br>
-                c
-                <br><br><br><br><br><br><br><br><br>
-                d
+                <a href="{% url 'core:pdf_view' pdf.id %}">View PDF</a>
+                <iframe src="{% url 'core:pdf_view' pdf.id %}" width="100%" height="600"></iframe>
             </p>
         </div>
-        <div class="w-1/4">
+        <div class="w-1/4 py-2 pr-4">
             <form method='post'>
                 {% csrf_token %}
                 {{ form.as_p }}
